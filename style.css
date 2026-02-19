@@ -1,9 +1,34 @@
+/* -------------------------------------------------------------------------
+ *
+ * Custom portfolio styles
+ *
+ * This stylesheet defines a bright, modern theme for the UX/UI portfolio.
+ * The primary color is a warm yellow that adds personality without
+ * compromising readability. Neutral whites and soft grays provide a clean
+ * background, while dark gray text ensures high contrast. Cards and buttons
+ * feature subtle shadows and rounded corners for a polished, professional
+ * appearance. Responsive grid layouts keep the design flexible on different
+ * screen sizes.
+ *
+ * ------------------------------------------------------------------------- */
+
+/* Root variables make it easy to tweak the palette across the site */
+:root {
+    --primary-color: #ffc107;      /* warm yellow accent */
+    --primary-dark: #e6a700;       /* slightly darker yellow for hover states */
+    --bg-color: #ffffff;           /* main background (white) */
+    --section-bg: #f9f9f9;         /* light gray for alternating sections */
+    --text-color: #333333;         /* dark gray for general text */
+    --subtext-color: #555555;      /* medium gray for secondary text */
+    --border-color: #e0e0e0;       /* light gray borders */
+}
+
 /* General styles */
 body {
     margin: 0;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: #0b0b0b;
-    color: #f5f5f5;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     line-height: 1.6;
 }
 
@@ -17,22 +42,24 @@ body {
 h1, h2, h3, h4 {
     margin-top: 0;
     font-weight: 600;
+    color: var(--text-color);
 }
 
 /* Hero section */
 .hero {
-    background: linear-gradient(135deg, #111111 0%, #0b0b0b 100%);
+    background-color: var(--section-bg);
     padding: 6rem 0;
     text-align: center;
-    border-bottom: 4px solid #d4af37; /* golden accent line */
+    border-bottom: 4px solid var(--primary-color);
 }
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 0.5rem;
+    color: var(--text-color);
 }
 .hero p {
     font-size: 1.25rem;
-    color: #d4af37;
+    color: var(--subtext-color);
 }
 
 /* About section */
@@ -40,36 +67,47 @@ h1, h2, h3, h4 {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    border-bottom: 1px solid #1f1f1f;
+    border-bottom: 1px solid var(--border-color);
+    padding: 4rem 0;
+    background-color: var(--bg-color);
 }
 .about .profile {
     flex: 1 1 250px;
     max-width: 250px;
     border-radius: 50%;
     margin-right: 2rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 .about .bio {
     flex: 2 1 500px;
 }
 .about .bio h2 {
-    color: #d4af37;
+    color: var(--primary-color);
     margin-bottom: 1rem;
+}
+.about .bio p {
+    color: var(--subtext-color);
 }
 .about .contact p {
     margin: 0.25rem 0;
+    color: var(--subtext-color);
 }
 .about .contact a {
-    color: #d4af37;
+    color: var(--primary-color);
     text-decoration: none;
+}
+.about .contact a:hover {
+    text-decoration: underline;
 }
 
 /* Projects section */
 .projects {
-    padding-top: 4rem;
+    padding: 4rem 0;
+    background-color: var(--section-bg);
 }
 .projects h2 {
-    color: #d4af37;
+    color: var(--primary-color);
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -79,13 +117,19 @@ h1, h2, h3, h4 {
     gap: 2rem;
 }
 .project {
-    background-color: #111111;
-    padding: 1rem;
+    background-color: var(--bg-color);
+    padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.project:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
 .project img {
     width: 100%;
@@ -95,16 +139,17 @@ h1, h2, h3, h4 {
 }
 .project h3 {
     margin-bottom: 0.5rem;
+    color: var(--text-color);
 }
 .project p {
     font-size: 0.9rem;
     text-align: center;
     margin-bottom: 1rem;
-    color: #cccccc;
+    color: var(--subtext-color);
 }
 .project .btn {
-    background-color: #d4af37;
-    color: #0b0b0b;
+    background-color: var(--primary-color);
+    color: #ffffff;
     padding: 0.5rem 1rem;
     text-decoration: none;
     border-radius: 4px;
@@ -112,14 +157,15 @@ h1, h2, h3, h4 {
     transition: background-color 0.3s ease;
 }
 .project .btn:hover {
-    background-color: #f1c93a;
+    background-color: var(--primary-dark);
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 2rem 0;
-    border-top: 1px solid #1f1f1f;
+    border-top: 1px solid var(--border-color);
     font-size: 0.9rem;
-    color: #888888;
+    color: var(--subtext-color);
+    background-color: var(--bg-color);
 }
